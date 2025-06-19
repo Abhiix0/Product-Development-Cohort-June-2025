@@ -1,53 +1,98 @@
+import React from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Calendar, Clock, MapPin, Users } from "lucide-react"
 import Link from "next/link"
+import { motion } from "framer-motion"
 
 export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-emerald-600 via-green-600 to-teal-700 text-white">
-        <div className="absolute inset-0 bg-black/10"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+      <section className="relative overflow-hidden min-h-[60vh] flex items-center bg-gradient-to-br from-[#3CB371]/30 via-[#F5B041]/30 to-[#FF8C00]/30 text-white">
+        {/* SVG Court Lines Overlay */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{opacity:0.08}} viewBox="0 0 1440 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="100" y="100" width="1240" height="400" rx="40" stroke="#fff" strokeWidth="2"/>
+          <line x1="720" y1="100" x2="720" y2="500" stroke="#fff" strokeWidth="1.5"/>
+          <line x1="100" y1="300" x2="1340" y2="300" stroke="#fff" strokeWidth="1.5"/>
+        </svg>
+        {/* Doodle PNG Floating, left side, responsive */}
+        <motion.img
+          src="/Doodle.png"
+          alt="Sports Doodle"
+          className="absolute left-0 bottom-0 w-[180px] sm:w-[220px] md:w-[260px] lg:w-[320px] opacity-20 z-0 pointer-events-none select-none"
+          initial={{ y: 0 }}
+          animate={{ y: [0, -18, 0] }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+          style={{ maxWidth: '40vw', minWidth: '100px' }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#3CB371]/40 via-[#F5B041]/30 to-[#FF8C00]/30" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
-                <h1 className="text-6xl font-bold font-poppins bg-gradient-to-r from-white to-green-100 bg-clip-text text-transparent leading-tight">
+                <motion.h1
+                  className="text-4xl md:text-6xl font-bold font-poppins bg-gradient-to-r from-white to-green-100 bg-clip-text text-transparent leading-tight"
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0 }}
+                >
                   Book Your Perfect Court at MLRIT
-                </h1>
-                <p className="text-2xl text-green-100 font-light leading-relaxed">
-                  Experience world-class sports facilities right at your campus. Reserve basketball, tennis, badminton,
-                  and cricket courts with our seamless booking system.
-                </p>
-                <p className="text-lg text-green-200">
-                  Join thousands of students who stay active, compete with friends, and make the most of their college
-                  experience through sports.
-                </p>
+                </motion.h1>
+                <motion.p
+                  className="text-xl md:text-2xl text-green-100 font-light leading-relaxed"
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.2 }}
+                >
+                  Experience world-class sports facilities right at your campus. Reserve basketball, tennis, badminton, and cricket courts with our seamless booking system.
+                </motion.p>
+                <motion.p
+                  className="text-base md:text-lg text-gray-600 font-medium mt-2"
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.4 }}
+                >
+                  Your Game, One Click Away.
+                </motion.p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/booking">
-                  <Button
-                    size="lg"
-                    className="bg-white text-green-700 hover:bg-green-50 font-semibold px-8 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all"
-                  >
-                    Start Booking Now
-                  </Button>
-                </Link>
-                <Link href="/profile">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-2 border-white text-white hover:bg-white hover:text-green-700 font-semibold px-8 py-4 text-lg rounded-xl transition-all"
-                  >
-                    View My Bookings
-                  </Button>
-                </Link>
+              <div className="flex flex-col sm:flex-row gap-4 mt-2">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.7 }}
+                >
+                  <Link href="/booking">
+                    <Button
+                      size="lg"
+                      className="bg-white text-green-700 hover:bg-green-50 font-semibold px-8 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all focus:outline-none focus:ring-2 focus:ring-green-400 animate-none browse-pulse"
+                      style={{ position: 'relative', zIndex: 1 }}
+                    >
+                      <span className="group inline-block">
+                        <span className="inline-block">Browse Courts</span>
+                      </span>
+                    </Button>
+                  </Link>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.95 }}
+                >
+                  <Link href="/profile">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="border-2 border-white text-white hover:bg-white hover:text-green-700 font-semibold px-8 py-4 text-lg rounded-xl transition-all"
+                    >
+                      Get Started Free
+                    </Button>
+                  </Link>
+                </motion.div>
               </div>
             </div>
-
-            {/* Illustration Space */}
-            <div className="relative">
+            {/* Illustration Space (kept for layout, but now backgrounded by Doodle) */}
+            <div className="relative z-10">
               <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 h-96 flex items-center justify-center border border-white/20">
                 <div className="text-center space-y-4">
                   <div className="text-6xl">🏟️</div>
@@ -58,6 +103,12 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+        {/* Optional: Animated Blob */}
+        <motion.div
+          className="hidden md:block absolute left-[-120px] top-[-80px] w-[320px] h-[320px] rounded-full bg-white/20 blur-2xl"
+          animate={{ scale: [1, 1.08, 1] }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        />
       </section>
 
       {/* Stats Section */}
