@@ -117,6 +117,11 @@ const LandingPage: React.FC = () => {
     <div className="min-h-screen bg-gray-25">
       {/* Hero Section */}
       <section className="relative pt-24 pb-20 overflow-hidden flex items-center min-h-[60vh] bg-gradient-to-br from-[rgba(60,179,113,0.18)] via-[rgba(245,176,65,0.13)] to-[rgba(255,140,0,0.13)]">
+        {/* Grid background overlay for hero section */}
+        <div
+          className="absolute inset-0 bg-[url('/gridlayout.png')] bg-bottom bg-no-repeat bg-contain opacity-50 mix-blend-multiply z-[-1]"
+          style={{ pointerEvents: 'none' }}
+        />
         {/* SVG Net Pattern Background */}
         <div
           className="absolute inset-0 z-[-2] bg-repeat bg-center"
@@ -216,15 +221,8 @@ const LandingPage: React.FC = () => {
 
       {/* Available Sports Section */}
       <div className="relative section-sports bg-gradient-to-r from-[#f6fff6] to-[#fff9f2] overflow-hidden">
-        <div
-          className="absolute inset-0 z-[-1] bg-repeat bg-center"
-          style={{
-            backgroundImage: "url('/net-pattern.svg'), url('/particles.svg')",
-            opacity: 0.14,
-            pointerEvents: 'none',
-            backgroundSize: 'auto, auto',
-          }}
-        />
+        {/* Soft radial light effect in top-left corner */}
+        <div className="absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-br from-green-100 via-white to-transparent rounded-full opacity-40 blur-2xl z-0 pointer-events-none" />
         <section className="py-20 bg-transparent relative z-0">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16 animate-fade-in">
@@ -276,17 +274,19 @@ const LandingPage: React.FC = () => {
 
       {/* Features Section */}
       <div className="relative section-why bg-gradient-to-br from-[#f3fdf8] via-[#f0f7f5] to-white overflow-hidden">
-        <div
-          className="absolute inset-0 z-[-1] bg-repeat bg-left-top"
-          style={{
-            backgroundImage: "url('/tech-mesh.svg'), url('/particles.svg')",
-            opacity: 0.14,
-            pointerEvents: 'none',
-            backgroundSize: 'auto, auto',
-          }}
+        {/* Blurred pastel blobs for mesh vibe */}
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-green-200 rounded-full blur-2xl opacity-20 z-0 pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-orange-100 rounded-full blur-2xl opacity-15 z-0 pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-yellow-100 rounded-full blur-2xl opacity-10 z-0 pointer-events-none -translate-x-1/2 -translate-y-1/2" />
+        
+        {/* ️ Right-side Doodle (now top-right) */}
+        <img
+          src="/doodlebb.png"
+          alt="Basketball Doodle"
+          className="absolute top-4 right-8 w-[160px] sm:w-[200px] lg:w-[260px] z-10 pointer-events-none select-none"
+          style={{ maxWidth: '30vw', filter: 'brightness(0.85)' }}
         />
-        <div className="absolute -top-10 -left-10 w-96 h-96 bg-green-200 rounded-full blur-3xl opacity-20 z-[-1]" />
-        <div className="absolute bottom-0 right-0 w-72 h-72 bg-orange-100 rounded-full blur-2xl opacity-15 z-[-1]" />
+
         <section className="py-20 bg-transparent relative z-0">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16 animate-fade-in">
@@ -297,7 +297,7 @@ const LandingPage: React.FC = () => {
                 Built with modern technology and user experience in mind, making court reservations effortless.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {features.map((feature, index) => (
                 <Card 
@@ -318,15 +318,11 @@ const LandingPage: React.FC = () => {
 
       {/* Testimonials Section */}
       <div className="relative section-testimonials bg-gradient-to-t from-white to-[#f3fef4] overflow-hidden">
-        <div
-          className="absolute inset-0 z-[-1] bg-no-repeat bg-contain bg-right"
-          style={{
-            backgroundImage: "url('/quotes-bg.svg'), url('/particles.svg')",
-            opacity: 0.14,
-            pointerEvents: 'none',
-            backgroundSize: 'auto, auto',
-          }}
-        />
+        {/* Glowing corners and faint quote mark effect using gradients */}
+        <div className="absolute -top-16 -left-16 w-64 h-64 bg-gradient-to-br from-primary-100 to-transparent rounded-full blur-2xl opacity-10 z-0 pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-tl from-green-100 to-transparent rounded-full blur-2xl opacity-10 z-0 pointer-events-none" />
+        {/* Faint abstract quote mark using a pseudo-element-like div */}
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 text-[8rem] font-serif text-primary-200 opacity-10 select-none pointer-events-none z-0">“</div>
         <section className="py-20 bg-transparent relative z-0">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16 animate-fade-in">
