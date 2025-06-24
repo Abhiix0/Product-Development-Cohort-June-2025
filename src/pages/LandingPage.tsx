@@ -136,11 +136,11 @@ const LandingPage: React.FC = () => {
         <motion.img
           src="/Doodle.png"
           alt="Sports Doodle"
-          className="absolute left-0 bottom-0 w-[160px] sm:w-[200px] md:w-[260px] lg:w-[320px] z-0 pointer-events-none select-none"
+          className="absolute left-0 bottom-0 w-[200px] sm:w-[250px] md:w-[320px] lg:w-[400px] z-0 pointer-events-none select-none transform scale-125 origin-bottom-left"
           initial={{ y: 0 }}
           animate={{ y: [0, -18, 0] }}
           transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-          style={{ maxWidth: '40vw', minWidth: '100px', filter: 'brightness(0.7)' }}
+          style={{ maxWidth: '50vw', minWidth: '120px', filter: 'brightness(0.7)' }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-[rgba(60,179,113,0.22)] via-[rgba(245,176,65,0.15)] to-[rgba(255,140,0,0.15)] z-[-1]" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
